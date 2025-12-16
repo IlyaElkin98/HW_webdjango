@@ -18,3 +18,14 @@ class Product(models.Model):
         help_text="Введите цену"
     )
 
+    updated_at = models.DateField(
+        verbose_name="Дата сохранения",
+        auto_now=True,
+    )
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "product"
+        verbose_name_plural = "products"
