@@ -1,0 +1,12 @@
+{% extends 'product/base.html' %}
+{% block title %}Детали блога{% endblock %}
+
+{% block content %}
+{% include 'product/header.html' %}
+<div class="container mt-5">
+    <h1 class="mb-4">{{ object.name }}</h1>
+    <p>{{ object.description }}</p>
+    <p>Цена: {{ object.price }}</p>
+    <p>Сохранено: {{ object.updated_at }}</p>
+</div>
+{% endblock %}
