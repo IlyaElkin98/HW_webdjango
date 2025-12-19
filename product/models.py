@@ -14,7 +14,6 @@ class Product(models.Model):
 
     price = models.IntegerField(
         verbose_name="Цена",
-        max_length=30,
         help_text="Введите цену"
     )
 
@@ -29,3 +28,4 @@ class Product(models.Model):
     class Meta:
         verbose_name = "product"
         verbose_name_plural = "products"
+
