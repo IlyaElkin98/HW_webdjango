@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -99,5 +101,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = "user.User"
+
+LOGIN_REDIRECT_URL = '/product/products/'
+
+LOGOUT_REDIRECT_URL = '/product/products/'
 
 
