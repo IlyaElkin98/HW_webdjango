@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -19,14 +19,14 @@
            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="product:products">Главная</a>
            </li>
-           <li class="nav-item">
-              <a class="nav-link" href="#">Регистрация</a>
-           </li>
            {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user:logout' %}">Выйти</a>
                 </li>
            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user:register' %}">Регистрация</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user:login' %}">Вход</a>
                 </li>
