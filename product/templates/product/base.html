@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse show" id="navbarBasic">
         <ul class="navbar-nav me-auto mb-2 mb-xl-0">
            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="product:products">Главная</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'product:products' %}">Главная</a>
            </li>
            {% if user.is_authenticated %}
                 <li class="nav-item">
