@@ -37,11 +37,6 @@ class User(AbstractUser):
     class Meta:
         verbose_name = "user"
         verbose_name_plural = "users"
-        permissions = [
-            ('can_unpublish_product', 'Can unpublish product'),
-
-        ]
-
 
     def __str__(self):
         return self.email
