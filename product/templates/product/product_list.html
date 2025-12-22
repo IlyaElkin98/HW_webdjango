@@ -13,6 +13,12 @@
                     <a href="{% url 'product:detail_product' product.pk %}">{{ product.name }}</a>
                     <a href="{% url 'product:update_product' product.pk %}" class="btn btn-sm btn-secondary ml-3">Редактировать</a>
                     <a href="{% url 'product:delete_product' product.pk %}" class="btn btn-sm btn-danger ml-1">Удалить</a>
+                    <p></p>
+                    {% if 'product.can_unpublish_product' in perms %}
+                        <form method="POST" action="{% url 'product:can_unpublish_product' product.pk %}" class="btn btn-sm btn-primary ml-1">Отменить публикацию
+                        {% csrf_token %}
+                        </form>
+                    {% endif %}
                     <p>Содержание: {{ product.description }}</p>
                 </div>
             </div>
