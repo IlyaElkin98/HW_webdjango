@@ -38,7 +38,6 @@ class User(AbstractUser):
         verbose_name = "user"
         verbose_name_plural = "users"
         permissions = [
-            ('product_removal', 'Product removal'),
             ('can_unpublish_product', 'Can unpublish product'),
 
         ]
