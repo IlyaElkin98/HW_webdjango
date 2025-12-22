@@ -22,6 +22,10 @@ class Product(models.Model):
         auto_now=True,
     )
 
+    publication_status = models.BooleanField(
+        default=False,
+        verbose_name='Статус публикации'
+    )
 
     def __str__(self):
         return self.name
@@ -29,4 +33,7 @@ class Product(models.Model):
     class Meta:
         verbose_name = "product"
         verbose_name_plural = "products"
+        permissions = [
+            ('can_unpublish_product', 'Can unpublish product')
+        ]
 
