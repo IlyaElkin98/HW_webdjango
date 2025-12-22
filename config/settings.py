@@ -1,5 +1,7 @@
 import os
 from pathlib import Path
+
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,7 +21,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "product",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -96,4 +100,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+AUTH_USER_MODEL = "user.User"
 
+LOGIN_REDIRECT_URL = 'product:products'
+
+LOGOUT_REDIRECT_URL = 'product:products'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+LOGIN_URL = 'user:login'

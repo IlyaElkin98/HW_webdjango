@@ -14,7 +14,6 @@ class Product(models.Model):
 
     price = models.IntegerField(
         verbose_name="Цена",
-        max_length=30,
         help_text="Введите цену"
     )
 
@@ -23,9 +22,11 @@ class Product(models.Model):
         auto_now=True,
     )
 
+
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name = "product"
         verbose_name_plural = "products"
+
