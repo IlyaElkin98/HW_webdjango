@@ -117,12 +117,13 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 LOGIN_URL = 'user:login'
 
-CASHES = {
-    'default': {
-        'BACKEND': 'from django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+CACHE_ENABLED = True
+if CACHE_ENABLED:
+    CASHES = {
+        'default': {
+            'BACKEND': 'from django.core.cache.backends.redis.RedisCache',
+            'LOCATION': 'redis://127.0.0.1:6379/1',
+        }
+
     }
 
-}
-
-CACHE_ENABLED = True
