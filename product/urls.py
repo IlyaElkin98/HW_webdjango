@@ -3,7 +3,7 @@ from django.conf import settings
 from django.views.decorators.cache import cache_page
 
 from .views import ProductCreateView, ProductListView, ProductDeleteView, ProductUpdateView, ProductDetailView, \
-    ProductPublicationStatusView
+    ProductPublicationStatusView, categories_list, products_by_category
 from product.apps import ProductConfig
 
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path("products/detail_product/<int:pk>/", cache_page(60)(ProductDetailView.as_view()), name="detail_product"),
     path("products/detail_product/<int:pk>/update/", ProductUpdateView.as_view(), name="update_product"),
     path("products/can_unpublish_product/<int:pk>/", ProductPublicationStatusView.as_view(), name="can_unpublish_product"),
-
+    path('categories/', categories_list, name='categories_list'),
+    path('category/<int:category_id>/', products_by_category, name='products_by_category'),
 ]
