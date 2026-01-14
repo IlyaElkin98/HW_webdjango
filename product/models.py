@@ -1,12 +1,20 @@
 from django.conf import settings
 from django.db import models
 
+class Category(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     name = models.CharField(
         max_length=150,
         verbose_name="Название",
         help_text="Введите название продукта",
     )
+
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     description = models.TextField(
         verbose_name="Описание",

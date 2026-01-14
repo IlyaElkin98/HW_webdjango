@@ -1,0 +1,16 @@
+{% extends 'product/base.html' %}
+{% block title %}Список блогов{% endblock %}
+
+
+{% block content %}
+{% include 'product/header.html' %}
+<h1>Продукты в категории: {{ category.name }}</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }}</li>
+        {% empty %}
+            <li>В этой категории нет продуктов.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'product:categories_list' %}">Назад к категориям</a>
+{% endblock %}
